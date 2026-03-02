@@ -1,10 +1,4 @@
 #####
-'''
-6月21日，完成所有的修改，实现：
-1. 发现了之前一直没发现的错误，错误在于公式拟合训练那里，成功修改🚑
-2. 可以使用增量型数据进行公式拟合了。
-
-'''
 #####
 
 
@@ -511,9 +505,9 @@ if file_path is not None:
 
     with st.sidebar.expander("均值和标准差（生成正态分布）"):
             # 使用st.sidebar.number_input来接收用户输入的均值和标准差
-            mu = st.number_input("请输入均值:", value=0.95)
+            mu = st.number_input("请输入均值:", value=0.91)
             sd = st.number_input("请输入标准差:", value=0.02)
-
+            st.caption("说明：μ/σ 用于生成器件初值样本（Monte Carlo），用于计算寿命分布与 R(t)、F(t)。")
 
     st.sidebar.header("算法参数设置")
     # 让用户调整搜索算法中的个体数目，影响搜索的广度和速度
@@ -712,8 +706,8 @@ if file_path is not None:
 
     st.write('注意：通过**运行参数拟合**按钮，可以对模型参数进行更新。')
 
-    o = st.number_input("定义失效阈值：", value=1.3)
-    ff = st.number_input("定义图像横坐标显示范围：", value=40000000)
+    o = st.number_input("定义失效阈值：", value=0.95)
+    ff = st.number_input("定义图像横坐标显示范围：", value=2000)
 
 
     # ✅ 只保留一个按钮：可靠度求解
